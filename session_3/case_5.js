@@ -4,4 +4,5 @@ function solution(n){
     return answer;
 }
 
-console.log(solution());
+let str="KKHSSSSSSSE";
+console.log(solution(str));
