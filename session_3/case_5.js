@@ -5,7 +5,6 @@ function solution(str){
 
         if(str[i] === str[i+1]){
             cnt++;
-            string = str[i];
         } else {
             answer+=`${str[i]}${cnt === 1 ? '': cnt}`;
             cnt = 1;
