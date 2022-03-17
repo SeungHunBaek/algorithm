@@ -1,8 +1,30 @@
-function solution(array){
-    let answer = array;
+function solution(n, array){
+    let answer = 0;
+    let graph = Array.from(Array(n+1), ()=>Array());
+    let checkArray = Array.from({length: n+1}, () => 0);
+
+    for (const [a, b] of array) {
+        graph[a].push(b);
+    }
+
+    function DFS(v){
+        if(v === n){
+            answer++;
+        } else {
+            for (let i = 0; i < graph[v].length; i++) {
+                if(checkArray[graph[v][i]] === 0){
+                    checkArray[graph[v][i]] = 1;
+                    DFS(graph[v][i]);
+                    checkArray[graph[v][i]] = 0;
+                }
+            }
+        }
+    }
+    checkArray[1]=1;
+    DFS(1);
     
     return answer;
 }
 
-let arr=[];
-console.log(solution(arr));
+let arr=[[1, 2], [1, 3], [1, 4], [2, 1], [2, 3], [2, 5], [3, 4], [4, 2], [4, 5]];
+console.log(solution(5, arr));
