@@ -11,4 +11,4 @@ function solution(n){
     
     return answer;
 }
-console.log(solution(7));
+console.log(solution(7)); // 21
